@@ -15,7 +15,7 @@ logger = logging.getLogger("crawler_logger")
 google_adurl_regex = re.compile('adurl=(.*?)"')
 google_url_regex = re.compile('url\?q=(.*?)&amp;sa=')
 email_regex = re.compile('(?!\S*\.(?:jpg|png|gif|bmp)(?:[\s\n\r]|$))[A-Z0-9._%+-]+@[A-Z0-9.-]{3,65}\.[A-Z]{2,4}', re.IGNORECASE)
-url_regex = re.compile('(?!\S*\.(?:twitter|linkedin|instagram)(?:[\s\n\r]|$))<a\s.*?href=[\'"](.*?)[\'"].*?>')
+url_regex = re.compile('(?!\S*\.(?:twitter|linkedin|instagram)(?:[\s\n\r]|$))<a\s.*?href=[\'"](.*?)[\'"].*?>', re.IGNORECASE)
 # Below url_regex will run into 'Castrophic Backtracking'!
 # http://stackoverflow.com/questions/8010005/python-re-infinite-execution
 # url_regex = re.compile('<a\s(?:.*?\s)*?href=[\'"](.*?)[\'"].*?>')
@@ -122,6 +122,7 @@ def find_emails_2_level_deep(url):
 	if (len(email_set) > 0):
 		# If there is a email, we stop at level 1.
 		return email_set
+		logger.info("Found email" (email_set) "at" % (url))
 
 	else:
 		# No email at level 1. Crawl level 2
