@@ -14,7 +14,7 @@ logger = logging.getLogger("crawler_logger")
 
 google_adurl_regex = re.compile('adurl=(.*?)"')
 google_url_regex = re.compile('url\?q=(.*?)&amp;sa=')
-email_regex = re.compile('([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4})', re.IGNORECASE)
+email_regex = re.compile('(?!\S*\.(?:jpg|png|gif|bmp)(?:[\s\n\r]|$))[A-Z0-9._%+-]+@[A-Z0-9.-]{3,65}\.[A-Z]{2,4}', re.IGNORECASE)
 url_regex = re.compile('<a\s.*?href=[\'"](.*?)[\'"].*?>')
 # Below url_regex will run into 'Castrophic Backtracking'!
 # http://stackoverflow.com/questions/8010005/python-re-infinite-execution
