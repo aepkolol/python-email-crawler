@@ -122,7 +122,6 @@ def find_emails_2_level_deep(url):
 	if (len(email_set) > 0):
 		# If there is a email, we stop at level 1.
 		return email_set
-		logger.info("Found email" % (email_set) "at" % (url))
 
 	else:
 		# No email at level 1. Crawl level 2
